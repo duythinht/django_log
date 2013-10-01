@@ -19,7 +19,7 @@ def index(request):
 
 	return render(request,'home.html');
 
-def log(request, n=2):
+def logs(request, n=2):
 
 	page = request.GET.get('page', 1)
 	offset = (int(page) - 1) * int(n)
@@ -38,4 +38,4 @@ def log(request, n=2):
 def delete(request, log_id):
 	log = Log.objects.get(id=log_id)
 	log.delete()
-	return redirect('/log/5')
+	return redirect('/logs/5')
