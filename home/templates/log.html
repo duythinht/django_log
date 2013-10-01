@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to PI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="container">
+
+        <h3>Log list</h3>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>TYPE</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Time</th>
+            </tr>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.log_type }}</a></td>
+                <td><a href="/delete/{{ log.id }}">{{ log.log_name }}</a></td>
+                <td>{{ log.log_value }}</td>
+                <td>{{ log.log_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+        <ul class="pagination">
+        {% for page_no in page_range %}
+        <li><a href="/log/{{ n }}?page={{ page_no }}">{{ page_no }}</a></li>
+        {% endfor %}
+    </ul>
+    </div>
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
